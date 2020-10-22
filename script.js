@@ -1,14 +1,23 @@
 /* Selettori */
 const loggedOrNot = document.getElementById("logged-or-not");
+
 const rollingDice = document.getElementById("rolling-dice");
 const showNum = document.getElementById("show-num");
-const muResult = document.getElementById("my-result");
+const myResult = document.getElementById("my-result");
+
+const rollingDice2 = document.getElementById("rolling-dice-2");
 const ShowNum2 = document.getElementById("show-num-2");
 const pcResult = document.getElementById("pc-result");
 
+const resultTitle = document.getElementById("result-title");
+const result = document.getElementById("result");
 
+const btn = document.getElementById("btn");
 
-
+/* Nascondo elementi inutili */
+resultTitle.style.display = "none";
+showNum.style.display = "none";
+ShowNum2.style.display = "none";
 
 /* Email in archivio */
 const emails = ["francesco@live.com", "marco@live.com", "andrea@live.com", "simone@live.com", "luca@live.com", "cristina@live.com",
@@ -32,4 +41,42 @@ if (emailsMatches > 0) {
     loggedOrNot.innerHTML = "L'email fornita è registrata nel nostro archivio, puoi giocare scommettendo denaro.<br> Attenzione, il gioco d'azzardo crea sonnolenza.";
 } else {
     loggedOrNot.innerHTML = "L'email fornita non è registrata nel nostro archivio, puoi giocare senza scommettere denaro.";
+}
+
+btn.addEventListener("click", tiraDado);
+
+function tiraDado(){
+    let numeri = [1, 2, 3, 4, 5, 6];
+    let gamerResult = Math.floor(1 + Math.random() * 6);
+    let botResult = Math.floor(1 + Math.random() * 6);
+    let risultato;
+    if (gamerResult > botResult){
+        risultato = "Hai Vinto!";
+    } else if (gamerResult === botResult){
+        risultato = "Pareggio!";
+    } else {
+        risultato = "Hai Perso!";
+    }
+    // return [gamerResult, botResult, risultato];
+    mostraNumeroGiocatore(gamerResult);
+    mostraNumeroPC(botResult);
+    mostraRisultato(risultato);
+}
+
+function mostraNumeroGiocatore(gamerResult){
+    showNum.style.display = "block";
+    let msg = gamerResult.toString();
+    myResult.innerHTML = msg;
+}
+
+function mostraNumeroPC(botResult){
+    ShowNum2.style.display = "block";
+    let msg = botResult.toString();
+    pcResult.innerHTML = msg;
+}
+
+function mostraRisultato(risultato){
+    resultTitle.style.display = "block";
+    let msg = risultato;
+    result.innerHTML = msg;
 }
