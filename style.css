@@ -55,6 +55,15 @@ h3 {
     text-align: center;
 }
 
+button {
+    padding: 0.4rem 0.6rem;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 .ruotaOrario {
     animation: ruotaOrario 6s ease-out forwards;
 }

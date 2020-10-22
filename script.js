@@ -84,14 +84,14 @@ function mostraRisultato(risultato){
 
 /* Aggiungo animazioni alle immagini */
 function animateImages(risultato){
-    /* Ripreparo il css per le animazioni */
-    rollingDice.classList.remove("ruotaOrario");
-    rollingDice2.classList.remove("ruotaAntiOrario");
-
+    
     rollingDice.classList.add("ruotaOrario");
     rollingDice2.classList.add("ruotaAntiOrario");
     if (risultato === "Hai Perso!") {
-        setTimeout(() => { rollingDice.src = "img/dado-fucked.gif"; }, 5000);
-        setTimeout(() => { rollingDice.src = "img/dice.png"; }, 1000);
+        setTimeout(() => { rollingDice.src = "img/dado-fucked.gif"; }, 4500);
+        setTimeout(() => { rollingDice.src = "img/dice.png"; }, 6000);
     }
+    /* Ripreparo il css per le animazioni */
+    setTimeout(() => { rollingDice.classList.remove("ruotaOrario"); }, 6000);
+    setTimeout(() => { rollingDice2.classList.remove("ruotaAntiOrario"); }, 6000);
 }
