@@ -7,22 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Gioca ai Dadi</h1>
-    <h2 id="logged-or-not"></h2>
+    <section id="title">
+        <h1>Gioca ai Dadi</h1>
+        <h2 id="logged-or-not"></h2>
+    </section>
     <section class="flex">
         <div>
-            <div><img src="img/dice.png" alt="" id="rolling-dice"></div>
+            <div><img src="img/dice.png" alt="" class="rolling-dice" id="rolling-dice"></div>
             <p id="show-num"></p>
+            <h3>Il tuo risultato è:</h3>
             <p id="my-result"></p>
         </div>
         <div id="result">
+            <div>
+                
+            </div>
     
         </div>
         <div>
-            <div><img src="img/dice.png" alt="" id="rolling-dice"></div>
+            <div><img src="img/dice.png" alt="" class="rolling-dice" id="rolling-dice-2"></div>
             <p id="show-num-2"></p>
+            <h3>Il risultato del pc è:</h3>
             <p id="pc-result"></p>
         </div>
+    </section>
+    <section id="play">
+        <button id="btn">Tira il Dado!</button>
     </section>
     <script src="script.js"></script>
 </body>
