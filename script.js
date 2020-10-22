@@ -46,7 +46,6 @@ if (emailsMatches > 0) {
 btn.addEventListener("click", tiraDado);
 
 function tiraDado(){
-    let numeri = [1, 2, 3, 4, 5, 6];
     let gamerResult = Math.floor(1 + Math.random() * 6);
     let botResult = Math.floor(1 + Math.random() * 6);
     let risultato;
@@ -57,7 +56,8 @@ function tiraDado(){
     } else {
         risultato = "Hai Perso!";
     }
-    // return [gamerResult, botResult, risultato];
+    
+    animateImages(risultato);
     mostraNumeroGiocatore(gamerResult);
     mostraNumeroPC(botResult);
     mostraRisultato(risultato);
@@ -66,17 +66,32 @@ function tiraDado(){
 function mostraNumeroGiocatore(gamerResult){
     showNum.style.display = "block";
     let msg = gamerResult.toString();
-    myResult.innerHTML = msg;
+    setTimeout(() => { myResult.innerHTML = msg; }, 6000);
 }
 
 function mostraNumeroPC(botResult){
     ShowNum2.style.display = "block";
     let msg = botResult.toString();
-    pcResult.innerHTML = msg;
+    setTimeout(() => { pcResult.innerHTML = msg; }, 6800);
 }
 
 function mostraRisultato(risultato){
     resultTitle.style.display = "block";
     let msg = risultato;
-    result.innerHTML = msg;
+    result.innerHTML = "I dadi stanno rollando...";
+    setTimeout(() => { result.innerHTML = msg; }, 7000);
+}
+
+/* Aggiungo animazioni alle immagini */
+function animateImages(risultato){
+    /* Ripreparo il css per le animazioni */
+    rollingDice.classList.remove("ruotaOrario");
+    rollingDice2.classList.remove("ruotaAntiOrario");
+
+    rollingDice.classList.add("ruotaOrario");
+    rollingDice2.classList.add("ruotaAntiOrario");
+    if (risultato === "Hai Perso!") {
+        setTimeout(() => { rollingDice.src = "img/dado-fucked.gif"; }, 5000);
+        setTimeout(() => { rollingDice.src = "img/dice.png"; }, 1000);
+    }
 }
