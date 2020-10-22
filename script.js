@@ -64,12 +64,14 @@ function tiraDado(){
 }
 
 function mostraNumeroGiocatore(gamerResult){
+    myResult.innerHTML = "";
     showNum.style.display = "block";
     let msg = gamerResult.toString();
     setTimeout(() => { myResult.innerHTML = msg; }, 6000);
 }
 
 function mostraNumeroPC(botResult){
+    pcResult.innerHTML = "";
     ShowNum2.style.display = "block";
     let msg = botResult.toString();
     setTimeout(() => { pcResult.innerHTML = msg; }, 6800);
