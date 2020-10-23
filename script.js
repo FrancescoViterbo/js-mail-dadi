@@ -27,17 +27,17 @@ const emails = ["francesco@live.com", "marco@live.com", "andrea@live.com", "simo
 const userEmail = prompt("Inserisci la tua email:");
 
 /* Variabile di controllo corrispondenze */
-var emailsMatches = 0;
+var emailsMatches = false;
 
 /* Itero nell'array, se trovo corrispondenze "emailsMatches" viene incrementata di 1 */
 for (i = 0; i < emails.length; i++) {
     if (userEmail === emails[i]) {
-        emailsMatches++;
+        emailsMatches = true;
     }
 }
 
 /* Mostro un messaggio per confermare o negare la presenza dell'email in archivio */
-if (emailsMatches > 0) {
+if (emailsMatches) {
     loggedOrNot.innerHTML = "L'email fornita è registrata nel nostro archivio, puoi giocare scommettendo denaro.<br> Attenzione, il gioco d'azzardo crea sonnolenza.";
 } else {
     loggedOrNot.innerHTML = "L'email fornita non è registrata nel nostro archivio, puoi giocare senza scommettere denaro.";
